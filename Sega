@@ -1,0 +1,202 @@
+import React, { useState } from 'react';
+import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';
+import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
+
+const ConsoleDashboard = () => {
+  const [activeTab, setActiveTab] = useState('specs');
+  
+  // Technische Daten
+  const specData = [
+    { name: 'CPU (MHz)', Genesis: 7.6, SNES: 3.58 },
+    { name: 'Grafikchip (MHz)', Genesis: 13, SNES: 3.58 },
+    { name: 'RAM (KB)', Genesis: 64, SNES: 128 },
+    { name: 'VRAM (KB)', Genesis: 64, SNES: 64 },
+    { name: 'Farbpalette', Genesis: 512, SNES: 32768 },
+    { name: 'Sprite Größe (Pixel)', Genesis: 32, SNES: 64 },
+    { name: 'Gleichzeitige Sprites', Genesis: 80, SNES: 128 },
+    { name: 'Auflösung', Genesis: 320, SNES: 256 },
+  ];
+  
+  // Verkaufszahlen
+  const salesData = [
+    { name: 'Weltweit (Millionen)', Genesis: 30.75, SNES: 49.1 },
+    { name: 'Japan (Millionen)', Genesis: 3.58, SNES: 17.17 },
+    { name: 'Nordamerika (Millionen)', Genesis: 16.98, SNES: 23.35 },
+    { name: 'Europa (Millionen)', Genesis: 8.39, SNES: 8.58 }
+  ];
+  
+  // Spielebibliothek
+  const gameLibraryData = [
+    { name: 'Gesamtzahl Spiele', Genesis: 913, SNES: 1757 },
+    { name: 'Exklusivtitel', Genesis: 700, SNES: 1544 },
+    { name: 'Top-Bewertete Spiele', Genesis: 150, SNES: 210 }
+  ];
+  
+  // Technische Vorteile
+  const advantagesGenesis = [
+    "Schnellerer Prozessor (7.6 MHz vs. 3.58 MHz)",
+    "Bessere Darstellung schneller Bewegungen",
+    "Höhere horizontale Auflösung (320 vs. 256)",
+    "Blast Processing für schnellere Grafikverarbeitung"
+  ];
+  
+  const advantagesSNES = [
+    "Größere Farbpalette (32,768 vs. 512 Farben)",
+    "Mehr RAM (128KB vs. 64KB)",
+    "Mode 7 für Rotation und Skalierung",
+    "Fortschrittlichere Soundchips mit DSP"
+  ];
+  
+  // Kultige Spiele
+  const iconicGames = [
+    { console: "Genesis", games: ["Sonic the Hedgehog", "Streets of Rage", "Phantasy Star IV", "Gunstar Heroes", "Shining Force II"] },
+    { console: "SNES", games: ["Super Mario World", "The Legend of Zelda: A Link to the Past", "Chrono Trigger", "Super Metroid", "Final Fantasy VI"] }
+  ];
+  
+  return (
+    <div className="w-full p-4 bg-gray-50">
+      <h1 className="text-3xl font-bold text-center mb-6">Sega Genesis vs. Super Nintendo</h1>
+      
+      <Tabs value={activeTab} onValueChange={setActiveTab} className="w-full">
+        <TabsList className="grid w-full grid-cols-4">
+          <TabsTrigger value="specs">Technische Daten</TabsTrigger>
+          <TabsTrigger value="sales">Verkaufszahlen</TabsTrigger>
+          <TabsTrigger value="games">Spielebibliothek</TabsTrigger>
+          <TabsTrigger value="advantages">Technische Vorteile</TabsTrigger>
+        </TabsList>
+        
+        {/* Technische Daten Tab */}
+        <TabsContent value="specs" className="mt-4">
+          <Card>
+            <CardHeader>
+              <CardTitle>Technische Spezifikationen im Vergleich</CardTitle>
+              <CardDescription>Hardwarevergleich zwischen Sega Genesis (Mega Drive) und Super Nintendo</CardDescription>
+            </CardHeader>
+            <CardContent>
+              <ResponsiveContainer width="100%" height={400}>
+                <BarChart data={specData} layout="vertical">
+                  <CartesianGrid strokeDasharray="3 3" />
+                  <XAxis type="number" />
+                  <YAxis dataKey="name" type="category" width={150} />
+                  <Tooltip />
+                  <Legend />
+                  <Bar dataKey="Genesis" fill="#3B82F6" name="Sega Genesis" />
+                  <Bar dataKey="SNES" fill="#EF4444" name="Super Nintendo" />
+                </BarChart>
+              </ResponsiveContainer>
+            </CardContent>
+          </Card>
+        </TabsContent>
+        
+        {/* Verkaufszahlen Tab */}
+        <TabsContent value="sales" className="mt-4">
+          <Card>
+            <CardHeader>
+              <CardTitle>Verkaufszahlen im Vergleich</CardTitle>
+              <CardDescription>Verkaufszahlen nach Regionen in Millionen Einheiten</CardDescription>
+            </CardHeader>
+            <CardContent>
+              <ResponsiveContainer width="100%" height={400}>
+                <BarChart data={salesData}>
+                  <CartesianGrid strokeDasharray="3 3" />
+                  <XAxis dataKey="name" />
+                  <YAxis />
+                  <Tooltip />
+                  <Legend />
+                  <Bar dataKey="Genesis" fill="#3B82F6" name="Sega Genesis" />
+                  <Bar dataKey="SNES" fill="#EF4444" name="Super Nintendo" />
+                </BarChart>
+              </ResponsiveContainer>
+            </CardContent>
+          </Card>
+        </TabsContent>
+        
+        {/* Spielebibliothek Tab */}
+        <TabsContent value="games" className="mt-4">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <Card>
+              <CardHeader>
+                <CardTitle>Spielebibliothek im Vergleich</CardTitle>
+                <CardDescription>Anzahl und Qualität der verfügbaren Spiele</CardDescription>
+              </CardHeader>
+              <CardContent>
+                <ResponsiveContainer width="100%" height={300}>
+                  <BarChart data={gameLibraryData}>
+                    <CartesianGrid strokeDasharray="3 3" />
+                    <XAxis dataKey="name" />
+                    <YAxis />
+                    <Tooltip />
+                    <Legend />
+                    <Bar dataKey="Genesis" fill="#3B82F6" name="Sega Genesis" />
+                    <Bar dataKey="SNES" fill="#EF4444" name="Super Nintendo" />
+                  </BarChart>
+                </ResponsiveContainer>
+              </CardContent>
+            </Card>
+            
+            <Card>
+              <CardHeader>
+                <CardTitle>Kultige Spiele</CardTitle>
+                <CardDescription>Die bekanntesten Titel auf beiden Plattformen</CardDescription>
+              </CardHeader>
+              <CardContent>
+                <div className="grid grid-cols-2 gap-4">
+                  {iconicGames.map((item, index) => (
+                    <div key={index} className={`p-4 rounded-md ${item.console === 'Genesis' ? 'bg-blue-100' : 'bg-red-100'}`}>
+                      <h3 className="font-bold mb-2">{item.console}</h3>
+                      <ul className="list-disc pl-5">
+                        {item.games.map((game, gameIndex) => (
+                          <li key={gameIndex}>{game}</li>
+                        ))}
+                      </ul>
+                    </div>
+                  ))}
+                </div>
+              </CardContent>
+            </Card>
+          </div>
+        </TabsContent>
+        
+        {/* Technische Vorteile Tab */}
+        <TabsContent value="advantages" className="mt-4">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <Card className="bg-blue-50">
+              <CardHeader>
+                <CardTitle className="text-blue-700">Sega Genesis Vorteile</CardTitle>
+                <CardDescription>Technische Stärken der Genesis-Konsole</CardDescription>
+              </CardHeader>
+              <CardContent>
+                <ul className="list-disc pl-5 space-y-2">
+                  {advantagesGenesis.map((advantage, index) => (
+                    <li key={index}>{advantage}</li>
+                  ))}
+                </ul>
+              </CardContent>
+            </Card>
+            
+            <Card className="bg-red-50">
+              <CardHeader>
+                <CardTitle className="text-red-700">Super Nintendo Vorteile</CardTitle>
+                <CardDescription>Technische Stärken der SNES-Konsole</CardDescription>
+              </CardHeader>
+              <CardContent>
+                <ul className="list-disc pl-5 space-y-2">
+                  {advantagesSNES.map((advantage, index) => (
+                    <li key={index}>{advantage}</li>
+                  ))}
+                </ul>
+              </CardContent>
+            </Card>
+          </div>
+        </TabsContent>
+      </Tabs>
+      
+      <div className="mt-8 text-center text-sm text-gray-500">
+        <p>Die technischen Daten und Verkaufszahlen basieren auf historischen Aufzeichnungen der 16-Bit-Ära (1989-1996).</p>
+      </div>
+    </div>
+  );
+};
+
+export default ConsoleDashboard;
