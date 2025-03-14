@@ -1,0 +1,743 @@
+<style>
+    /* Spezifischer Namespace für JEC-Elemente um Konflikte zu vermeiden */
+    .jec-world-2025 {
+        font-family: 'Arial', sans-serif;
+        line-height: 1.6;
+        color: #333;
+        max-width: 1200px;
+        margin: 0 auto;
+    }
+    
+    .jec-world-2025 .header-container {
+        width: 100%;
+        margin-bottom: 1.5rem;
+        position: relative;
+        overflow: hidden;
+        border-radius: 0px;
+        box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    }
+    
+    .jec-world-2025 .header-image {
+        width: 100%;
+        aspect-ratio: 20/7;
+        object-fit: cover;
+        max-height: 320px;
+        filter: blur(3px) brightness(0.9);
+    }
+    
+    .jec-world-2025 .header-title {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        color: white;
+        font-size: 3rem;
+        font-weight: bold;
+        text-align: center;
+        z-index: 2;
+        text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.6);
+        background-color: rgba(3, 71, 156, 0.6);
+        padding: 10px 30px;
+        border-radius: 0px;
+        backdrop-filter: blur(2px);
+    }
+    
+    .jec-world-2025 .intro {
+        background-color: white;
+        padding: 1.5rem 0;
+        text-align: center;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        margin-bottom: 1.5rem;
+        border-radius: 0px;
+    }
+    
+    .jec-world-2025 .intro p {
+        font-size: 1.1rem;
+        max-width: 800px;
+        margin: 0 auto;
+    }
+    
+    .jec-world-2025 .section-title {
+        text-align: center;
+        padding: 1rem 0;
+        font-size: 1.6rem;
+        color: #03479c;
+        margin-top: 0.5rem;
+        margin-bottom: 0.5rem;
+    }
+    
+    .jec-world-2025 .highlight-product {
+        background-color: #e4edf9;
+        padding: 1.5rem 2rem;
+        margin-bottom: 1.5rem;
+        width: 100%;
+        border-radius: 0px;
+        box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    }
+    
+    .jec-world-2025 .product-content {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: space-between;
+        gap: 1.5rem;
+    }
+    
+    .jec-world-2025 .product-text {
+        flex: 1;
+        min-width: 300px;
+    }
+    
+    .jec-world-2025 .product-text p {
+        margin-bottom: 0.75rem;
+    }
+    
+    .jec-world-2025 .product-image {
+        flex: 1;
+        min-width: 300px;
+        text-align: center;
+    }
+    
+    .jec-world-2025 .product-image img {
+        max-width: 100%;
+        border-radius: 0px;
+        box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    }
+    
+    .jec-world-2025 .presentation {
+        background-color: #e4edf9;
+        padding: 1.5rem 2rem;
+        margin-bottom: 1.5rem;
+        border-radius: 0px;
+        box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    }
+    
+    .jec-world-2025 .presentation-content {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .jec-world-2025 .presentation-content p {
+        margin-bottom: 0.75rem;
+        width: 100%;
+        margin-left: auto;
+        margin-right: auto;
+        text-align: center;
+        font-size: 1rem;
+    }
+    
+    .jec-world-2025 .video-container {
+        width: 100%;
+        max-width: 670px;
+        margin: 1.5rem auto;
+        aspect-ratio: 16/9;
+        background-color: #f1f5fa;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 0px;
+        box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        position: relative;
+        text-align: center;
+    }
+    
+    .jec-world-2025 .video-container p {
+        font-size: 1rem;
+        margin: 0;
+        padding: 20px;
+        width: 100%;
+    }
+    
+    /* Carousel Styles */
+    .jec-world-2025 .image-carousel {
+        margin: 2rem 0;
+        padding: 0.5rem 0;
+    }
+    
+    .jec-world-2025 .carousel-container {
+        max-width: 1000px;
+        margin: 0 auto;
+        position: relative;
+    }
+    
+    .jec-world-2025 .carousel-slides {
+        position: relative;
+        height: 0;
+        padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
+        overflow: hidden;
+        border-radius: 0px;
+        box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    }
+    
+    .jec-world-2025 .carousel-slide {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        opacity: 0;
+        transition: opacity 1s ease-in-out;
+        display: none;
+        overflow: hidden;
+    }
+    
+    .jec-world-2025 .carousel-slide.active {
+        opacity: 1;
+        display: block;
+    }
+    
+    .jec-world-2025 .carousel-slide.active .carousel-image {
+        animation: zoomEffect 4s forwards;
+    }
+    
+    @keyframes zoomEffect {
+        0% {
+            transform: scale(1);
+        }
+        100% {
+            transform: scale(1.1);
+        }
+    }
+    
+    .jec-world-2025 .carousel-image {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+    
+    .jec-world-2025 .carousel-caption {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background-color: rgba(3, 71, 156, 0.8);
+        color: white;
+        padding: 0.75rem;
+        margin: 0;
+        text-align: center;
+        font-size: 1rem;
+    }
+    
+    .jec-world-2025 .carousel-controls {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-top: 1rem;
+    }
+    
+    .jec-world-2025 .carousel-prev,
+    .jec-world-2025 .carousel-next {
+        background-color: #03479c;
+        color: white;
+        border: none;
+        border-radius: 50%;
+        width: 40px;
+        height: 40px;
+        font-size: 1.2rem;
+        cursor: pointer;
+        margin: 0 0.5rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: background-color 0.3s ease;
+    }
+    
+    .jec-world-2025 .carousel-prev:hover,
+    .jec-world-2025 .carousel-next:hover {
+        background-color: #d6555a;
+    }
+    
+    .jec-world-2025 .carousel-dots {
+        display: flex;
+        margin: 0 1rem;
+    }
+    
+    .jec-world-2025 .carousel-dot {
+        width: 10px;
+        height: 10px;
+        background-color: #ccc;
+        border-radius: 50%;
+        margin: 0 5px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+    }
+    
+    .jec-world-2025 .carousel-dot.active {
+        background-color: #03479c;
+    }
+    
+    .jec-world-2025 .carousel-dot:hover {
+        background-color: #d6555a;
+    }
+    
+    .jec-world-2025 .exhibits {
+        padding: 1rem 0;
+    }
+    
+    .jec-world-2025 .exhibits > .container > p {
+        text-align: center;
+        font-size: 1rem;
+        margin-bottom: 1rem;
+    }
+    
+    .jec-world-2025 .exhibit-item {
+        background-color: white;
+        margin: 1.25rem 0;
+        padding: 1.5rem;
+        border-radius: 0px;
+        box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        transition: transform 0.3s ease;
+    }
+    
+    .jec-world-2025 .content-box {
+        background-color: #e4edf9;
+        padding: 1.5rem 2rem;
+        margin: 1.25rem 0;
+        border-radius: 0px;
+        box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    }
+    
+    .jec-world-2025 .exhibit-item:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+    }
+    
+    .jec-world-2025 .exhibit-item h3 {
+        color: #03479c;
+        margin-bottom: 0.75rem;
+        font-size: 1.3rem;
+        font-weight: bold;
+        text-align: center;
+    }
+    
+    .jec-world-2025 .exhibit-item p {
+        margin-bottom: 0.75rem;
+        text-align: center;
+        font-size: 1rem;
+    }
+    
+    .jec-world-2025 .highlight-product p,
+    .jec-world-2025 p {
+        margin-bottom: 0.75rem;
+        text-align: center;
+        font-size: 1rem;
+    }
+    
+    .jec-world-2025 .highlight-product h3 {
+        color: #03479c;
+        margin-bottom: 0.75rem;
+        font-size: 1.3rem;
+        font-weight: bold;
+        text-align: center;
+    }
+    
+    /* Neuer PDF-Link-Style mit SVG */
+    .jec-world-2025 .pdf-link {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        margin: 1rem auto;
+        color: #03479c;
+        text-decoration: none;
+        font-weight: bold;
+        padding: 10px 20px;
+        border: 2px solid #03479c;
+        border-radius: 0px;
+        transition: all 0.3s ease;
+        text-align: center;
+        max-width: 400px;
+        font-size: 1rem;
+    }
+    
+    .jec-world-2025 .pdf-link .download-icon {
+        margin-left: 10px;
+        stroke: #03479c;
+        transition: transform 0.3s ease;
+    }
+    
+    .jec-world-2025 .pdf-link:hover {
+        background-color: #03479c;
+        color: white;
+        transform: translateY(-2px);
+        box-shadow: 0 4px 8px rgba(3, 71, 156, 0.3);
+    }
+    
+    .jec-world-2025 .pdf-link:hover .download-icon {
+        stroke: white;
+        transform: translateY(2px);
+    }
+    
+    .jec-world-2025 .highlight-text {
+        font-weight: bold;
+        color: #d6555a;
+    }
+    
+    .jec-world-2025 strong {
+        color: #d6555a;
+    }
+    
+    .jec-world-2025 h1.main-title {
+        text-align: center;
+        color: #03479c;
+        font-size: 2.5rem;
+        margin: 1rem 0;
+        font-weight: bold;
+        position: relative;
+        padding-bottom: 0.5rem;
+    }
+    
+    .jec-world-2025 h1.main-title::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 100px;
+        height: 3px;
+        background-color: #d6555a;
+    }
+    
+    .jec-world-2025 .container {
+        width: 100%;
+        max-width: 1100px;
+        margin: 0 auto;
+        padding: 0 15px;
+    }
+    
+    .jec-world-2025 .cta-button {
+        display: inline-block;
+        background-color: #d6555a;
+        color: white;
+        font-weight: bold;
+        padding: 12px 24px;
+        border-radius: 0px;
+        text-decoration: none;
+        margin-top: 1rem;
+        transition: all 0.3s ease;
+        border: none;
+        cursor: pointer;
+    }
+    
+    .jec-world-2025 .cta-button:hover {
+        background-color: #c03c41;
+        transform: translateY(-2px);
+        box-shadow: 0 4px 8px rgba(214, 85, 90, 0.3);
+    }
+
+   .jec-world-2025 .highlight-product a {
+       text-decoration: underline !important;
+   }
+    
+    @media (max-width: 768px) {
+        .jec-world-2025 .product-content {
+            flex-direction: column;
+        }
+        
+        .jec-world-2025 .product-image {
+            order: -1;
+        }
+        
+        .jec-world-2025 h1.main-title {
+            font-size: 2rem;
+        }
+        
+        .jec-world-2025 .section-title {
+            font-size: 1.5rem;
+        }
+        
+        .jec-world-2025 .exhibit-item {
+            padding: 1.5rem;
+        }
+        
+        .jec-world-2025 .content-box {
+            padding: 1.5rem;
+        }
+        
+        .jec-world-2025 .pdf-link {
+            display: inline-flex;
+            text-align: center;
+        }
+        
+        .jec-world-2025 .carousel-caption {
+            font-size: 0.9rem;
+            padding: 0.5rem;
+        }
+        
+        .jec-world-2025 .header-title {
+            font-size: 2rem;
+            padding: 8px 20px;
+        }
+    }
+</style>
+<div class="jec-world-2025">
+    
+    <div class="header-container">
+        <img src="https://www.buefa-composites.com/fileadmin/media/Banner/header_j.svg" alt="JEC World 2025 Banner" class="header-image">
+        <h1 class="header-title">JEC World 2025</h1>
+    </div>
+    
+    <section class="intro">
+        <div class="container">
+            <p>Die JEC World 2025 liegt hinter uns – und für uns war sie ein voller Erfolg! Drei spannende Tage mit großartiger Stimmung, vielen interessanten Gesprächen und neuen Kontakten. Vielen Dank an alle, die uns auf unserem Stand besucht haben!</p>
+        </div>
+    </section>
+    
+    <h2 class="section-title">Was Sie verpasst haben:</h2>
+    
+    <section class="highlight-product">
+        <div class="container">
+            <h3 class="section-title">Unser Highlight: Der BÜFA®-Firestop-Gelcoat-S 320</h3>
+            <div>
+                <p>Ein echtes Messe-Highlight war das <strong>BÜFA®-Firestop-Gelcoat-S 320</strong> – unser neues Premium-Gelcoat für den Brandschutz. Es bietet höchste Wärmeformbeständigkeit, ist frei von Styrol, Melamin und Halogenen und erfüllt internationale Brandschutznormen wie EN 45545-2, HL2 und HL3 (mit Lack).</p>
+                <p>In der Bahnindustrie setzt es neue Maßstäbe – und ist im System verarbeitet und lackiert das <strong>sicherste HL3-System auf dem Markt</strong>!</p>
+                <p>Das S320-Gelcoat lässt sich flexibel mit verschiedenen BÜFA®-Firestop-Harzen kombinieren und ist für RTM, Infusion und HLU geeignet. Es überzeugt durch hervorragende Verarbeitungseigenschaften – und ist dank optimaler Viskosität und Thixotropie einfach mit BÜFA Tec Maschinen zu applizieren.</p>
+                <p>Mehr dazu finden Sie in unserem <a href="https://www.buefa-composites.com/de/produkte-systeme/buefa-systeme/brandschutzsysteme" style="color: #03479c; font-weight: bold; text-decoration: none;" target="_blank">BÜFA®-Firestop: Brandschutzsysteme für optimale Sicherheit</a>.</p>
+            </div>
+        </div>
+    </section>
+    
+    <section class="presentation">
+        <div class="container">
+            <h3 class="section-title">Fachvortrag: Innovative Brandschutzlösungen im Schienenverkehr</h3>
+            <div class="presentation-content">
+                <p>Joe Mardoukh (BÜFA Composite Systems) und Oliver Bahrmann (BKT Braunschweig) präsentierten auf der JEC 2025 spannende Einblicke in moderne, nachhaltige und feuerhemmende Verbundwerkstoffe für Bahn, Bau und Transport.</p>
+                <p>Im Mittelpunkt stand das BÜFA®-Firestop-Gelcoat-S 320 – eine halogenfreie High-Performance-Lösung mit herausragenden Brandschutzeigenschaften. Anhand konkreter Anwendungsbeispiele zeigte BKT Braunschweig, wie diese Materialien erfolgreich in realen Projekten eingesetzt werden.</p>
+                <p>Die Experten gaben zudem einen Ausblick auf zukunftsweisende Technologien, mit denen sich Sicherheit, Nachhaltigkeit und Performance gezielt kombinieren lassen.</p>
+                
+                <div class="video-container">
+                    <p>🎥 Videoaufzeichnung des Vortrags</p>
+                    <!-- Hier könnte später ein iframe für ein Video oder ein Vorschau-Bild mit Play-Button eingefügt werden -->
+                </div>
+            </div>
+        </div>
+    </section>
+    
+  <section class="image-carousel">
+    <h2 class="section-title">Impressionen von der JEC World 2025</h2>
+    <div class="carousel-container">
+        <div class="carousel-slides">
+            <div class="carousel-slide active">
+                <img src="https://www.buefa-composites.com/fileadmin/Jec2025/Carrousel/Messestand_JEC_2025_-_Offene__einladende_Atmosphaere_und_lebhaftes_Treiben_am_BUEFA-Stand.JPG" alt="BÜFA Messestand" class="carousel-image">
+                <p class="carousel-caption">Offene, einladende Atmosphäre am BÜFA-Stand</p>
+            </div>
+            <div class="carousel-slide">
+                <img src="https://www.buefa-composites.com/fileadmin/Jec2025/Carrousel/Messestand_JEC_2025_-_Gruppenfoto_des_BUEFA-Teams_vor_Europakarte_mit_Standorten_und_Partnern.JPG" alt="BÜFA Team" class="carousel-image">
+                <p class="carousel-caption">Das BÜFA-Team vor der Europakarte mit Standorten und Partnern</p>
+            </div>
+            <div class="carousel-slide">
+                <img src="https://www.buefa-composites.com/fileadmin/Jec2025/Carrousel/Messestand_JEC_2025_-_Besucherandrang_und_Interessierte_im_Gespraech_am_BUEFA-Stand.JPG" alt="Gespräche am Stand" class="carousel-image">
+                <p class="carousel-caption">Fachgespräche und interessierte Besucher am BÜFA-Stand</p>
+            </div>
+            <div class="carousel-slide">
+                <img src="https://www.buefa-composites.com/fileadmin/Jec2025/Carrousel/Messestand_JEC_2025_-_VW_ID._Buzz_Heckklappe_aus_nachhaltigen_Verbundwerkstoffen_von_BUEFA.jpeg" alt="VW ID. Buzz Heckklappe" class="carousel-image">
+                <p class="carousel-caption">VW ID. Buzz Heckklappe aus nachhaltigen BÜFA-Verbundwerkstoffen</p>
+            </div>
+            <div class="carousel-slide">
+                <img src="https://www.buefa-composites.com/fileadmin/Jec2025/Carrousel/Desiro_HC_Fahrertisch_nachhaltig_und_feuerhemmend.jpeg" alt="Desiro HC Fahrertisch" class="carousel-image">
+                <p class="carousel-caption">Desiro HC Fahrertisch - nachhaltig und feuerhemmend</p>
+            </div>
+            <div class="carousel-slide">
+                <img src="https://www.buefa-composites.com/fileadmin/Jec2025/Carrousel/Messestand_JEC_2025_-_Networking_mit_frisch_gezapftem_norddeutschem_Bier_im_BUEFA-Design.JPG" alt="Networking mit Bier" class="carousel-image">
+                <p class="carousel-caption">Networking mit frisch gezapftem norddeutschem Bier im BÜFA-Design</p>
+            </div>
+            <div class="carousel-slide">
+                <img src="https://www.buefa-composites.com/fileadmin/Jec2025/Carrousel/Messestand_JEC_2025_-_Hoher_Besucherandrang_und_Networking_am_BUEFA-Stand.JPG" alt="Besucherandrang" class="carousel-image">
+                <p class="carousel-caption">Hoher Besucherandrang und reger Austausch am BÜFA-Stand</p>
+            </div>
+        </div>
+        <div class="carousel-controls">
+            <button class="carousel-prev" aria-label="Vorheriges Bild">❮</button>
+            <div class="carousel-dots">
+                <span class="carousel-dot active" aria-label="Bild 1"></span>
+                <span class="carousel-dot" aria-label="Bild 2"></span>
+                <span class="carousel-dot" aria-label="Bild 3"></span>
+                <span class="carousel-dot" aria-label="Bild 4"></span>
+                <span class="carousel-dot" aria-label="Bild 5"></span>
+                <span class="carousel-dot" aria-label="Bild 6"></span>
+                <span class="carousel-dot" aria-label="Bild 7"></span>
+            </div>
+            <button class="carousel-next" aria-label="Nächstes Bild">❯</button>
+        </div>
+    </div>
+</section>
+    
+    <h2 class="section-title">Unsere Exponate – Innovation, Nachhaltigkeit & Anwendungspraxis</h2>
+    
+    <section class="exhibits">
+        <div class="container">
+            <p>Auf der JEC World 2025 konnten Besucher gleich mehrere zukunftsweisende BÜFA-Entwicklungen live erleben:</p>
+            
+            <div class="exhibit-item">
+                <h3>Siemens Velaro Egypt Projekt – gemeinsam mit BKT</h3>
+                <p>Im Projekt „Velaro Egypt" von Siemens wurden extrem hitzebeständige und schwer entflammbare Komponenten benötigt – für den Einsatz unter anspruchsvollsten klimatischen Bedingungen. In Zusammenarbeit mit BKT Braunschweig kamen BÜFA®-Firestop-Systeme wie das Gelcoat-S 285 und Harz 8175-W-1 zum Einsatz.</p>
+                <p>Ergebnis: Dach- und Fahrerpult-Bauteile, die höchsten Anforderungen an Temperatur- und Brandschutz standhalten.</p>
+                <a href="https://www.buefa-composites.com/fileadmin/bcs_case_study_siemens_und_bkt_2025_UK.pdf" class="pdf-link" target="_blank">
+                    Case Study: Siemens & BKT – PDF herunterladen
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="download-icon">
+                        <path d="M12 4v12"></path>
+                        <path d="M8 12l4 4 4-4"></path>
+                        <path d="M20 16v1a2 2 0 01-2 2H6a2 2 0 01-2-2v-1"></path>
+                    </svg>
+                </a>
+            </div>
+            
+            <div class="exhibit-item">
+                <h3>Volkswagen ID. Buzz – Nachhaltige Mobilität trifft Hightech</h3>
+                <p>Beim Projekt zum ID. Buzz, dem ersten vollelektrischen Van von VW, lag der Fokus auf nachhaltiger Leichtbauweise. Gemeinsam mit jungen Talenten entwickelte BÜFA ein Bauteilkonzept auf Basis biobasierter Harze und Flachsfasern – verarbeitet im Vakuuminfusionsverfahren.</p>
+                <p>Das Ergebnis: Eine hochfeste, CO₂-reduzierte Heckklappe mit exzellenter Optik.</p>
+                <a href="https://www.buefa-composites.com/fileadmin/bcs_casestudy_volkswagen_UK.pdf" class="pdf-link" target="_blank">
+                    Case Study: Volkswagen ID. Buzz – PDF herunterladen
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="download-icon">
+                        <path d="M12 4v12"></path>
+                        <path d="M8 12l4 4 4-4"></path>
+                        <path d="M20 16v1a2 2 0 01-2 2H6a2 2 0 01-2-2v-1"></path>
+                    </svg>
+                </a>
+            </div>
+            
+            <div class="exhibit-item">
+                <h3>BÜFA®-rPET Harze – Recycelte Lösungen, echte Perspektiven</h3>
+                <p>Ein weiteres Highlight: Unsere <strong>BÜFA®-rPET Harze</strong>, die bis zu <strong>30 % recyceltes PET</strong> enthalten. Diese nachhaltigen Polyesterharze wurden am Stand als Mustergranulat in Glassäulen gezeigt – begleitet von einer informativen Broschüre und einer spannenden Case Study mit <strong>Quantum Mouldings (UK)</strong>.</p>
+                <p>Die rPET-Systeme bieten <strong>vergleichbare oder sogar bessere mechanische Eigenschaften</strong> als klassische UP-Harze – bei gleichzeitig bis zu <strong>15 % geringerer CO₂-Bilanz</strong>.</p>
+                <a href="https://www.buefa-composites.com/fileadmin/bcs_rpet_brochure_UK.pdf" class="pdf-link" target="_blank">
+                    BÜFA Composites – rPET-Harze PDF (ENG)
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="download-icon">
+                        <path d="M12 4v12"></path>
+                        <path d="M8 12l4 4 4-4"></path>
+                        <path d="M20 16v1a2 2 0 01-2 2H6a2 2 0 01-2-2v-1"></path>
+                    </svg>
+                </a>
+            </div>
+        </div>
+    </section>
+    
+    <section class="content-box">
+        <div class="container">
+            <h3 class="section-title">Interessiert an unseren innovativen Lösungen?</h3>
+            <p>Sie haben die JEC World 2025 verpasst? Kein Problem! Kontaktieren Sie uns für weitere Informationen zu unseren präsentierten Produkten oder vereinbaren Sie einen persönlichen Termin mit unseren Experten.</p>
+            <div style="text-align: center; margin-top: 1.5rem;">
+                <a href="https://www.buefa-composites.com/de/kontakt" class="cta-button" target="_blank">Jetzt Kontakt aufnehmen</a>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Karussell-Funktionalität
+            const slides = document.querySelectorAll('.jec-world-2025 .carousel-slide');
+            const dots = document.querySelectorAll('.jec-world-2025 .carousel-dot');
+            const prevBtn = document.querySelector('.jec-world-2025 .carousel-prev');
+            const nextBtn = document.querySelector('.jec-world-2025 .carousel-next');
+            let currentIndex = 0;
+            let slideInterval;
+            
+            // Funktion zum Anzeigen eines bestimmten Slides
+            function showSlide(index) {
+                // Vorherigen Slide ausblenden
+                slides.forEach(slide => slide.classList.remove('active'));
+                dots.forEach(dot => dot.classList.remove('active'));
+                
+                // Index im erlaubten Bereich halten
+                currentIndex = (index + slides.length) % slides.length;
+                
+                // Aktuellen Slide anzeigen
+                slides[currentIndex].classList.add('active');
+                dots[currentIndex].classList.add('active');
+            }
+            
+            // Automatisches Wechseln starten
+            function startSlideshow() {
+                slideInterval = setInterval(() => {
+                    showSlide(currentIndex + 1);
+                }, 5000);
+            }
+            
+            // Automatisches Wechseln stoppen (bei Interaktion)
+            function stopSlideshow() {
+                clearInterval(slideInterval);
+            }
+            
+            // Event-Listener für Navigationspfeile
+            prevBtn.addEventListener('click', () => {
+                stopSlideshow();
+                showSlide(currentIndex - 1);
+                startSlideshow();
+            });
+            
+            nextBtn.addEventListener('click', () => {
+                stopSlideshow();
+                showSlide(currentIndex + 1);
+                startSlideshow();
+            });
+            
+            // Event-Listener für Dots
+            dots.forEach((dot, index) => {
+                dot.addEventListener('click', () => {
+                    stopSlideshow();
+                    showSlide(index);
+                    startSlideshow();
+                });
+            });
+            
+            // Pausieren bei Hover über Karussell
+            const carouselContainer = document.querySelector('.jec-world-2025 .carousel-container');
+            
+            carouselContainer.addEventListener('mouseenter', () => {
+                stopSlideshow();
+            });
+            
+            carouselContainer.addEventListener('mouseleave', () => {
+                startSlideshow();
+            });
+            
+            // Starten des Karussells
+            startSlideshow();
+            
+           // Karussell-Navigationen für Touch-Geräte
+            const slidesContainer = document.querySelector('.jec-world-2025 .carousel-slides');
+            let startX, endX, diffX;
+            const swipeThreshold = 50; // Mindestdistanz für einen Swipe
+            
+            // Touch-Events für mobile Geräte
+            slidesContainer.addEventListener('touchstart', function(e) {
+                stopSlideshow(); // Slideshow beim Berühren stoppen
+                startX = e.changedTouches[0].screenX;
+            }, { passive: true });
+            
+            slidesContainer.addEventListener('touchend', function(e) {
+                endX = e.changedTouches[0].screenX;
+                diffX = startX - endX;
+                
+                // Wenn der Swipe weit genug war, Slide wechseln
+                if (Math.abs(diffX) > swipeThreshold) {
+                    if (diffX > 0) {
+                        // Nach links gewischt -> nächster Slide
+                        showSlide(currentIndex + 1);
+                    } else {
+                        // Nach rechts gewischt -> vorheriger Slide
+                        showSlide(currentIndex - 1);
+                    }
+                }
+                
+                // Slideshow wieder starten
+                startSlideshow();
+            }, { passive: true });
+            
+            // Tastatur-Navigation für Barrierefreiheit
+            document.addEventListener('keydown', function(e) {
+                if (document.activeElement === prevBtn || document.activeElement === nextBtn) {
+                    if (e.key === 'ArrowLeft') {
+                        stopSlideshow();
+                        showSlide(currentIndex - 1);
+                        startSlideshow();
+                    } else if (e.key === 'ArrowRight') {
+                        stopSlideshow();
+                        showSlide(currentIndex + 1);
+                        startSlideshow();
+                    }
+                }
+            });
+        });
+    </script>
+</div>
