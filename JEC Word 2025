@@ -505,11 +505,11 @@
                 <p>Joe Mardoukh (BÜFA Composite Systems) und Oliver Bahrmann (BKT Braunschweig) präsentierten auf der JEC 2025 spannende Einblicke in moderne, nachhaltige und feuerhemmende Verbundwerkstoffe für Bahn, Bau und Transport.</p>
                 <p>Im Mittelpunkt stand das BÜFA®-Firestop-Gelcoat-S 320 – eine halogenfreie High-Performance-Lösung mit herausragenden Brandschutzeigenschaften. Anhand konkreter Anwendungsbeispiele zeigte BKT Braunschweig, wie diese Materialien erfolgreich in realen Projekten eingesetzt werden.</p>
                 <p>Die Experten gaben zudem einen Ausblick auf zukunftsweisende Technologien, mit denen sich Sicherheit, Nachhaltigkeit und Performance gezielt kombinieren lassen.</p>
+               
+        <div class="video-container">
+        <iframe src="https://www.youtube.com/embed/Shy4XLBrvj4?si=_lbxE1TvEDPks_M7" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0;"></iframe>
+        </div>
                 
-                <div class="video-container">
-                    <p>🎥 Videoaufzeichnung des Vortrags</p>
-                    <!-- Hier könnte später ein iframe für ein Video oder ein Vorschau-Bild mit Play-Button eingefügt werden -->
-                </div>
             </div>
         </div>
     </section>
