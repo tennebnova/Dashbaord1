@@ -334,7 +334,7 @@
     
     /* Neuer PDF-Link-Style mit SVG */
     .jec-world-2025 .pdf-link {
-        display: inline-flex;
+        display: flex;
         align-items: center;
         justify-content: center;
         margin: 1rem auto;
@@ -455,8 +455,9 @@
         }
         
         .jec-world-2025 .pdf-link {
-            display: inline-flex;
+            display: flex;
             text-align: center;
+            width: 100%;
         }
         
         .jec-world-2025 .carousel-caption {
