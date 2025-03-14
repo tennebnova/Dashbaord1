@@ -6,49 +6,49 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/com
 const ConsoleDashboard = () => {
   const [activeTab, setActiveTab] = useState('specs');
   
-  // Technische Daten
+  // Technical Specifications
   const specData = [
     { name: 'CPU (MHz)', Genesis: 7.6, SNES: 3.58 },
-    { name: 'Grafikchip (MHz)', Genesis: 13, SNES: 3.58 },
+    { name: 'Graphics Chip (MHz)', Genesis: 13, SNES: 3.58 },
     { name: 'RAM (KB)', Genesis: 64, SNES: 128 },
     { name: 'VRAM (KB)', Genesis: 64, SNES: 64 },
-    { name: 'Farbpalette', Genesis: 512, SNES: 32768 },
-    { name: 'Sprite Größe (Pixel)', Genesis: 32, SNES: 64 },
-    { name: 'Gleichzeitige Sprites', Genesis: 80, SNES: 128 },
-    { name: 'Auflösung', Genesis: 320, SNES: 256 },
+    { name: 'Color Palette', Genesis: 512, SNES: 32768 },
+    { name: 'Sprite Size (Pixels)', Genesis: 32, SNES: 64 },
+    { name: 'Simultaneous Sprites', Genesis: 80, SNES: 128 },
+    { name: 'Resolution', Genesis: 320, SNES: 256 },
   ];
   
-  // Verkaufszahlen
+  // Sales Figures
   const salesData = [
-    { name: 'Weltweit (Millionen)', Genesis: 30.75, SNES: 49.1 },
-    { name: 'Japan (Millionen)', Genesis: 3.58, SNES: 17.17 },
-    { name: 'Nordamerika (Millionen)', Genesis: 16.98, SNES: 23.35 },
-    { name: 'Europa (Millionen)', Genesis: 8.39, SNES: 8.58 }
+    { name: 'Worldwide (Millions)', Genesis: 30.75, SNES: 49.1 },
+    { name: 'Japan (Millions)', Genesis: 3.58, SNES: 17.17 },
+    { name: 'North America (Millions)', Genesis: 16.98, SNES: 23.35 },
+    { name: 'Europe (Millions)', Genesis: 8.39, SNES: 8.58 }
   ];
   
-  // Spielebibliothek
+  // Game Library
   const gameLibraryData = [
-    { name: 'Gesamtzahl Spiele', Genesis: 913, SNES: 1757 },
-    { name: 'Exklusivtitel', Genesis: 700, SNES: 1544 },
-    { name: 'Top-Bewertete Spiele', Genesis: 150, SNES: 210 }
+    { name: 'Total Number of Games', Genesis: 913, SNES: 1757 },
+    { name: 'Exclusive Titles', Genesis: 700, SNES: 1544 },
+    { name: 'Top-Rated Games', Genesis: 150, SNES: 210 }
   ];
   
-  // Technische Vorteile
+  // Technical Advantages
   const advantagesGenesis = [
-    "Schnellerer Prozessor (7.6 MHz vs. 3.58 MHz)",
-    "Bessere Darstellung schneller Bewegungen",
-    "Höhere horizontale Auflösung (320 vs. 256)",
-    "Blast Processing für schnellere Grafikverarbeitung"
+    "Faster processor (7.6 MHz vs. 3.58 MHz)",
+    "Better display of fast movements",
+    "Higher horizontal resolution (320 vs. 256)",
+    "Blast Processing for faster graphics processing"
   ];
   
   const advantagesSNES = [
-    "Größere Farbpalette (32,768 vs. 512 Farben)",
-    "Mehr RAM (128KB vs. 64KB)",
-    "Mode 7 für Rotation und Skalierung",
-    "Fortschrittlichere Soundchips mit DSP"
+    "Larger color palette (32,768 vs. 512 colors)",
+    "More RAM (128KB vs. 64KB)",
+    "Mode 7 for rotation and scaling",
+    "Advanced sound chips with DSP"
   ];
   
-  // Kultige Spiele
+  // Iconic Games
   const iconicGames = [
     { console: "Genesis", games: ["Sonic the Hedgehog", "Streets of Rage", "Phantasy Star IV", "Gunstar Heroes", "Shining Force II"] },
     { console: "SNES", games: ["Super Mario World", "The Legend of Zelda: A Link to the Past", "Chrono Trigger", "Super Metroid", "Final Fantasy VI"] }
@@ -60,18 +60,18 @@ const ConsoleDashboard = () => {
       
       <Tabs value={activeTab} onValueChange={setActiveTab} className="w-full">
         <TabsList className="grid w-full grid-cols-4">
-          <TabsTrigger value="specs">Technische Daten</TabsTrigger>
-          <TabsTrigger value="sales">Verkaufszahlen</TabsTrigger>
-          <TabsTrigger value="games">Spielebibliothek</TabsTrigger>
-          <TabsTrigger value="advantages">Technische Vorteile</TabsTrigger>
+          <TabsTrigger value="specs">Technical Specifications</TabsTrigger>
+          <TabsTrigger value="sales">Sales Figures</TabsTrigger>
+          <TabsTrigger value="games">Game Library</TabsTrigger>
+          <TabsTrigger value="advantages">Technical Advantages</TabsTrigger>
         </TabsList>
         
-        {/* Technische Daten Tab */}
+        {/* Technical Specifications Tab */}
         <TabsContent value="specs" className="mt-4">
           <Card>
             <CardHeader>
-              <CardTitle>Technische Spezifikationen im Vergleich</CardTitle>
-              <CardDescription>Hardwarevergleich zwischen Sega Genesis (Mega Drive) und Super Nintendo</CardDescription>
+              <CardTitle>Technical Specifications Comparison</CardTitle>
+              <CardDescription>Hardware comparison between Sega Genesis (Mega Drive) and Super Nintendo</CardDescription>
             </CardHeader>
             <CardContent>
               <ResponsiveContainer width="100%" height={400}>
@@ -89,12 +89,12 @@ const ConsoleDashboard = () => {
           </Card>
         </TabsContent>
         
-        {/* Verkaufszahlen Tab */}
+        {/* Sales Figures Tab */}
         <TabsContent value="sales" className="mt-4">
           <Card>
             <CardHeader>
-              <CardTitle>Verkaufszahlen im Vergleich</CardTitle>
-              <CardDescription>Verkaufszahlen nach Regionen in Millionen Einheiten</CardDescription>
+              <CardTitle>Sales Figures Comparison</CardTitle>
+              <CardDescription>Sales figures by region in millions of units</CardDescription>
             </CardHeader>
             <CardContent>
               <ResponsiveContainer width="100%" height={400}>
@@ -112,13 +112,13 @@ const ConsoleDashboard = () => {
           </Card>
         </TabsContent>
         
-        {/* Spielebibliothek Tab */}
+        {/* Game Library Tab */}
         <TabsContent value="games" className="mt-4">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             <Card>
               <CardHeader>
-                <CardTitle>Spielebibliothek im Vergleich</CardTitle>
-                <CardDescription>Anzahl und Qualität der verfügbaren Spiele</CardDescription>
+                <CardTitle>Game Library Comparison</CardTitle>
+                <CardDescription>Number and quality of available games</CardDescription>
               </CardHeader>
               <CardContent>
                 <ResponsiveContainer width="100%" height={300}>
@@ -137,8 +137,8 @@ const ConsoleDashboard = () => {
             
             <Card>
               <CardHeader>
-                <CardTitle>Kultige Spiele</CardTitle>
-                <CardDescription>Die bekanntesten Titel auf beiden Plattformen</CardDescription>
+                <CardTitle>Iconic Games</CardTitle>
+                <CardDescription>The most famous titles on both platforms</CardDescription>
               </CardHeader>
               <CardContent>
                 <div className="grid grid-cols-2 gap-4">
@@ -158,13 +158,13 @@ const ConsoleDashboard = () => {
           </div>
         </TabsContent>
         
-        {/* Technische Vorteile Tab */}
+        {/* Technical Advantages Tab */}
         <TabsContent value="advantages" className="mt-4">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             <Card className="bg-blue-50">
               <CardHeader>
-                <CardTitle className="text-blue-700">Sega Genesis Vorteile</CardTitle>
-                <CardDescription>Technische Stärken der Genesis-Konsole</CardDescription>
+                <CardTitle className="text-blue-700">Sega Genesis Advantages</CardTitle>
+                <CardDescription>Technical strengths of the Genesis console</CardDescription>
               </CardHeader>
               <CardContent>
                 <ul className="list-disc pl-5 space-y-2">
@@ -177,8 +177,8 @@ const ConsoleDashboard = () => {
             
             <Card className="bg-red-50">
               <CardHeader>
-                <CardTitle className="text-red-700">Super Nintendo Vorteile</CardTitle>
-                <CardDescription>Technische Stärken der SNES-Konsole</CardDescription>
+                <CardTitle className="text-red-700">Super Nintendo Advantages</CardTitle>
+                <CardDescription>Technical strengths of the SNES console</CardDescription>
               </CardHeader>
               <CardContent>
                 <ul className="list-disc pl-5 space-y-2">
@@ -193,7 +193,7 @@ const ConsoleDashboard = () => {
       </Tabs>
       
       <div className="mt-8 text-center text-sm text-gray-500">
-        <p>Die technischen Daten und Verkaufszahlen basieren auf historischen Aufzeichnungen der 16-Bit-Ära (1989-1996).</p>
+        <p>The technical specifications and sales figures are based on historical records from the 16-bit era (1989-1996).</p>
       </div>
     </div>
   );
